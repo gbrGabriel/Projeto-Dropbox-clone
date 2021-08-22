@@ -1,0 +1,23 @@
+{
+  "name": "Projeto-Dropbox-clone",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido com base em cursos Online de Javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbrGabriel/Projeto-Dropbox-clone"
+  },
+  "author": "Gabriel Silva - gbrDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbrGabriel/Projeto-Dropbox-clone/issues"
+  },
+  "homepage": "https://github.com/gbrGabriel/Projeto-Dropbox-clone#readme",
+  "dependencies": {
+    "ionicons": "^2.0.1",
+    "bootstrap": "^4.1.0"
+  }
+}
