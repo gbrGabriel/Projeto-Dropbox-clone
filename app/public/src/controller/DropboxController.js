@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+
 class DropboxController {
 
     constructor() {
@@ -8,10 +10,12 @@ class DropboxController {
         this.progressBarEl = this.snackModal.querySelector('.mc-progress-bar-fg');
         this.nameFileEl = this.snackModal.querySelector('.filename');
         this.timeLeftEl = this.snackModal.querySelector('.timeleft');
-
+        this.firebase = initializeApp
+        this.connectFirebase();
         this.initEvent();
 
     }
+
 
     initEvent() {
 
@@ -23,13 +27,48 @@ class DropboxController {
 
         this.inputFilesEl.addEventListener('change', event => {
 
-            this.uploadTask(event.target.files);
+            this.uploadTask(event.target.files).then(responses => {
+
+                responses.forEach(resp => {
+
+                    console.log(resp.files['input-file']);
+
+                    this.getFirebaseRef().push().set(resp.files['input-file']);
+
+                });
+                this.modalShoww(false);
+            });
 
             this.modalShoww();
 
             this.inputFilesEl.value = '';
 
         });
+
+    }
+
+    connectFirebase() {
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjAkPLup1O0-I8p-qkdZX9ivhvCSdeo34",
+            authDomain: "dropbox-clone-8d92f.firebaseapp.com",
+            databaseURL: "https://dropbox-clone-8d92f-default-rtdb.firebaseio.com",
+            projectId: "dropbox-clone-8d92f",
+            storageBucket: "dropbox-clone-8d92f.appspot.com",
+            messagingSenderId: "1071565075333",
+            appId: "1:1071565075333:web:84f2548444d72731b24aec",
+            measurementId: "G-0KTVS0M41W"
+        };
+
+
+        this.firebase(firebaseConfig);
+
+    }
+
+    getFirebaseRef() {
+
+        return this.firebase.database().ref('files');
 
     }
 
@@ -53,8 +92,6 @@ class DropboxController {
 
                 ajax.onload = event => {
 
-                    this.modalShoww(false);
-
                     try {
 
                         resolve(JSON.parse(ajax.responseText));
@@ -64,8 +101,6 @@ class DropboxController {
                     }
                 };
                 ajax.onerror = event => {
-
-                    this.modalShoww(false);
 
                     reject(event);
 
@@ -338,5 +373,10 @@ class DropboxController {
         `;
 
     }
+    
 
 }
+
+//import { initializeApp } from "firebase/app";
+
+

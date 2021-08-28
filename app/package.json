@@ -1,16 +1,31 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "Projeto-Dropbox-clone",
+  "description": "Projeto desenvolvido com base em cursos Online de Javascript",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbrGabriel/Projeto-Dropbox-clone"
+  },
+  "author": "Gabriel Silva - gbrDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbrGabriel/Projeto-Dropbox-clone/issues",
+    "homepage": "https://github.com/gbrGabriel/Projeto-Dropbox-clone#readme",
+    "dependencies": {
+      "bootstrap": "^4.1.0",
+      "cookie-parser": "~1.4.4",
+      "debug": "~2.6.9",
+      "ejs": "~2.6.1",
+      "express": "~4.16.1",
+      "firebase": "^9.0.0",
+      "formidable": "^1.2.2",
+      "http-errors": "~1.6.3",
+      "ionicons": "^2.0.1",
+      "morgan": "~1.9.1"
+    }
   }
 }
